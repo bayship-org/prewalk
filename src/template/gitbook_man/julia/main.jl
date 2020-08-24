@@ -105,13 +105,11 @@ end
 end
 
 @show Conf.prewalkChar
-if length(ARGS)>0
-  local ok=run()
-  if !ok 
+local ok=run()
+if !ok 
     for lg in Lggng.LOG 
       println(lg)
     end
   end
-end
 
 

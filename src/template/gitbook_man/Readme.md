@@ -3,6 +3,9 @@
 
  [Document](https://bayship-org.github.io/gitbook/prewalk/index.html "Document")
 
+[Github](https://github.com/bayship-org/prewalk "Github")
+ 
+
 ### What is Prewalk?
 
 Prewalk is a string interpolation tool into any text files. For example, latex source files, markdown files, or source code files of any programming languages. 
@@ -91,7 +94,7 @@ To compile all jl.md files:
 
 ```
 $> cd $Gitbook
-$> julia julia/main.jl true
+$> julia julia/main.jl
 $> gitbook serve #If it does not auto reload.
 ```
 
@@ -99,11 +102,12 @@ Note that all jl.md files are compiled in the order of entries in SUMMARY.md. It
 
 
 ### More complex example
-For $Gitbook/md/.../test.jl.md, Prewalk evaluates julia code in the following order. Note that these files are not necessary. And all jl file is evaluated exactly once.
+For $Gitbook/md/.../test.jl.md, Prewalk evaluates julia code in the following order. Note that these files, 1. to 3., are not necessary. And all jl file is evaluated exactly once.
 
 1. $Gitbook/jl/user.jl
 2. $Gitbook/md/.../_.jl
 3. $Gitbook/md/.../test.jl
+4. $Gitbook/md/.../test.jl.md
 
 For the following code:
 ```

@@ -183,6 +183,7 @@
 <p>If you are reading this Readme in Github, some part will not be in good condition. </p>
 </blockquote>
 <p> <a href="https://bayship-org.github.io/gitbook/prewalk/index.html" title="Document" target="_blank">Document</a></p>
+<p><a href="https://github.com/bayship-org/prewalk" title="Github" target="_blank">Github</a></p>
 <h3 id="what-is-prewalk">What is Prewalk?</h3>
 <p>Prewalk is a string interpolation tool into any text files. For example, latex source files, markdown files, or source code files of any programming languages. </p>
 <p>Though in the rest we focus on how to use Prewalk for markdown files in Gitbook projects. Some samples are also included for Katex and SVG in Gitbook.</p>
@@ -246,15 +247,16 @@ Hello world
 </code></pre><h3 id="complile-jlmd-files">Complile jl.md files</h3>
 <p>To compile all jl.md files:</p>
 <pre><code>$&gt; cd $Gitbook
-$&gt; julia julia/main.jl true
+$&gt; julia julia/main.jl
 $&gt; gitbook serve #If it does not auto reload.
 </code></pre><p>Note that all jl.md files are compiled in the order of entries in SUMMARY.md. It implies that just one change in some jl.md file will trigger compiling all jl.md files.</p>
 <h3 id="more-complex-example">More complex example</h3>
-<p>For $Gitbook/md/.../test.jl.md, Prewalk evaluates julia code in the following order. Note that these files are not necessary. And all jl file is evaluated exactly once.</p>
+<p>For $Gitbook/md/.../test.jl.md, Prewalk evaluates julia code in the following order. Note that these files, 1. to 3., are not necessary. And all jl file is evaluated exactly once.</p>
 <ol>
 <li>$Gitbook/jl/user.jl</li>
 <li>$Gitbook/md/.../_.jl</li>
 <li>$Gitbook/md/.../test.jl</li>
+<li>$Gitbook/md/.../test.jl.md</li>
 </ol>
 <p>For the following code:</p>
 <pre><code>[#
@@ -397,7 +399,7 @@ y=(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"HelloWorld.pw.md","level":"1.2.1","depth":2,"path":"md/HelloWorld.pw.md","ref":"md/HelloWorld.pw.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook Tutorial","gitbook":"*","description":"This is a gitbook example"},"file":{"path":"Readme.md","mtime":"2020-08-24T08:45:34.493Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-24T08:47:13.531Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"HelloWorld.pw.md","level":"1.2.1","depth":2,"path":"md/HelloWorld.pw.md","ref":"md/HelloWorld.pw.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook Tutorial","gitbook":"*","description":"This is a gitbook example"},"file":{"path":"Readme.md","mtime":"2020-08-24T12:28:59.518Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-24T12:29:49.075Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
