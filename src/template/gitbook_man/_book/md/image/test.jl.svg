@@ -1,0 +1,48 @@
+
+[#
+# We define 6 vertices laveled 1 to 6.
+# We define some edges.
+  E=collect(Iterators.product(1:2:6, 2:2:6))
+
+# We position vertices on the unit circle.
+# Each vertex is positioned at 60 dgree*(label-1) 
+  r60=cos(pi/3)+sin(pi/3)im
+  pos=(num)->begin;xy=im*(r60^(num-1));[real(xy),imag(xy)];end
+# We define a line for each edge.
+  L=[ vcat(pos(e[1]),pos(e[2])) for e in E]
+#]
+
+[#
+using Printf
+#
+tpl =(line)->"""
+<line 
+$(
+  Printf.@sprintf(""" 🏣|"%s%s=\"%f\" "^4|🏣 """,
+  vcat(
+    [ 
+    [("xy"^2)[i],sort(collect("12"^2))[i],line[i]] 
+    for i in 1:4
+    ]
+    ...)
+    ...)
+  )
+ />
+"""
+#
+S=[tpl(line) for line in L]
+vB="viewBox"
+_prewalk="TOKYO"
+#]
+
+<svg 🏣|vB|🏣="-1.5 -1.5 3 3" xmlns="http://www.w3.org/2000/svg">
+<g stroke-width="0.1" transform="translate(0 0)" stroke="blue">
+🏣| join(S,"\n") |🏣 
+</g>
+<g stroke-width="0.001" font-size="0.1" transform="translate(-2 -1)" stroke="blue">
+<text>🏣|"abc🏣"|🏣abc🏣</text> 
+  </g>
+</svg>
+
+
+

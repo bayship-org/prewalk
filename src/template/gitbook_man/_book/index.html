@@ -1,0 +1,425 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook Tutorial</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Examples
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="md/HelloWorld.pw.html">
+            
+                <a href="md/HelloWorld.pw.html">
+            
+                    
+                    HelloWorld.pw.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p>In Github, some part of this md file will not be displayed in good condition. </p>
+</blockquote>
+<p> <a href="https://bayship-org.github.io/gitbook/" title="Document" target="_blank">Document</a></p>
+<h3 id="what-is-prewalk">What is Prewalk?</h3>
+<p>Prewalk is a string interpolation tool into any text files. For example, latex source files, markdown files, or source code files of any programming languages. 
+Though in the rest we focus on how to use Prewalk for markdown files in Gitbook projects. Some samples are also included for Katex and SVG in Gitbook.</p>
+<h3 id="notation">Notation</h3>
+<p>All jl.md files are your source files to be compliled into pw.md files which will be displayed in your Gitbook project. For example:</p>
+<ul>
+<li>test.jl.md</li>
+<li>test.pw.md</li>
+<li>test.jl.svg</li>
+<li>test.pw.svg</li>
+</ul>
+<p>$InstallDir: the directory to install $Gitbook.
+$Gitbook: the root directory of the template.
+$Gitbook/md: put all your jl.md files here. 
+$Gitbook/md/image: put all your jl.svg files here.
+$Gitbook/jl: put all your jl files here.
+$Gitbook/julia: to customize Prewalk, edit jl files here.</p>
+<h3 id="install">Install</h3>
+<p>The template for gitbook is in Prewalk/src/template/gitbook
+To generalte Gitbook template, open a julia REPL:</p>
+<pre><code>pkg&gt; add Prewalk
+julia&gt; using Prewalk
+julia&gt; cd(&quot;$InstallDir&quot;)
+julia&gt; Prewalk.template(&quot;gitbook&quot;)
+</code></pre><p>Back to the OS terminal.</p>
+<pre><code>$&gt;cd $InstallDir/$Gitbook
+&gt;gitbook serve
+</code></pre><p>Open your browser at localhost:4000 by default.</p>
+<h3 id="add-an-md-file">Add an md file</h3>
+<p>Suppose you want to add a new markdown file, &quot;$Gitbook/md/test.md&quot;. As a downside of the template project, the file name must be &quot;test.pw.md&quot;.
+Add an entry of &quot;test.pw.md&quot; into &quot;$Gitbook/SUMMARY.md&quot;. Though do not create &quot;$Gitbook/md/test.pw.md&quot; in the file system as Prewalk will create it.</p>
+<pre><code># Summary
+(README.md)
+[TEST](md/test.pw.md)
+</code></pre><p>Instead you need to create &quot;$Gitbook/md/test.jl.md&quot;. Put the following code in &quot;test.jl.md&quot;.</p>
+<pre><code>### Hello world
+
+&#x1F3E3;| &quot;Hello world&quot; |&#x1F3E3;
+</code></pre><p>The special character,&apos;&#x1F3E3;&apos;, is called prewalkChar. You can type prewalkChar by:</p>
+<ul>
+<li>Open julia REPL.</li>
+<li>type &quot;\:post_office:&quot;.</li>
+<li>type TAB.</li>
+</ul>
+<p>If you do not like the default prewalkChar, you can change it in &quot;$Gitbook/julia/main.jl&quot; at &quot;module Conf.prewalkChar&quot;.</p>
+<p>After compiling all jl.md files,we expect:</p>
+<pre><code>### Hello world
+
+Hello world
+</code></pre><h3 id="complile-jlmd-files">Complile jl.md files</h3>
+<p>To compile all jl.md files:</p>
+<pre><code>$&gt; cd $Gitbook
+$&gt; julia julia/main.jl true
+$&gt; gitbook serve #If it does not auto reload.
+</code></pre><p>Note that all jl.md files are compiled in the order of entries in SUMMARY.md. It implies that just one change in some jl.md file will trigger compiling all jl.md files.</p>
+<h3 id="more-complex-example">More complex example</h3>
+<p>For $Gitbook/md/.../test.jl.md, Prewalk evaluates julia code in the following order. Note that these files are not necessary. And all jl file is evaluated exactly once.</p>
+<ol>
+<li>$Gitbook/jl/user.jl</li>
+<li>$Gitbook/md/.../_.jl</li>
+<li>$Gitbook/md/.../test.jl</li>
+</ol>
+<p>For the following code:</p>
+<pre><code>[#
+x=10
+#]
+
+### Hello world
+
+&#x1F3E3;| &quot;Hello world&quot;*&quot;!&quot;^x |&#x1F3E3;
+</code></pre><p>We expect:</p>
+<pre><code>### Hello world
+
+Hello world!!!!!!!!!!
+</code></pre><p>The form of prewalkChar, &#x1F3E3;|, is said degree 1 because one bar accompanies &#x1F3E3;. Theoretically degrees of &#x1F3E3; ranges from zero to the infinite. As a major drawback of Prewalk, &#x1F3E3;| and |&#x1F3E3; are equivalent for Prewalk&apos;s recognition. That is, the followings are equivalent.</p>
+<ul>
+<li>&#x1F3E3;| &quot;123&quot; |&#x1F3E3;</li>
+<li>&#x1F3E3;| &quot;123&quot; &#x1F3E3;|</li>
+</ul>
+<p>Line by line, Prewalk evaluates &#x1F3E3; in the accending order of degrees.</p>
+<p>For the following code:</p>
+<pre><code>[#
+_prewalk=123
+#]
+
+### Hello world
+
+&#x1F3E3;
+</code></pre><p>We expect:</p>
+<pre><code>123
+</code></pre><p>That is, Prewalk substitutes the value of the reserved variable,_prewalk, into &#x1F3E3; if typeof(_prewalk) is such that does not accept simple indexing.
+Meanwile if _prewalk does:</p>
+<pre><code>[#
+_prewalk=(1,2,3)
+#]
+
+### Hello world
+
+&#x1F3E3; &lt; &#x1F3E3; &lt; &#x1F3E3;
+</code></pre><p>We expect:</p>
+<pre><code>1 &lt; 2 &lt; 3
+</code></pre><p>Although the following code is practically nonsense:</p>
+<pre><code>[#
+using Printf
+#]
+&#x1F3E3;|| Printf.@sprintf(&quot;&quot;&quot; &#x1F3E3;|&quot;%s,&quot;^4|&#x1F3E3; &quot;&quot;&quot;, 1:4...) ||&#x1F3E3;
+</code></pre><p>We expect:</p>
+<pre><code>1,2,3,4
+</code></pre><p>Sometimes you may need to type a prewalkChar followed by a bar not for denoting the degree. For such a case, you may use emptyChar, &#x1F530;. For example, &#x1F3E3;&#x1F530;|. To type emptyChar:</p>
+<ul>
+<li>Open julia REPL.</li>
+<li>Type &quot;\:beginner:&quot;.</li>
+<li>Type TAB.</li>
+</ul>
+<h3 id="some-typical-errors">Some typical errors</h3>
+<pre><code>[#
+x=1
+y=(
+  1
+)
+#]
+</code></pre><p>It results an error because the first new line needs to be replaced with &quot;;&quot; whereas the rest new lines are to be ignored.
+To fix the problem, you use a comment as follows.</p>
+<pre><code>[#
+x=1
+#
+y=(
+  1
+)
+#]
+</code></pre><p>The following code also results an error because multi line comments are not supported.</p>
+<pre><code>[#
+x=1
+#=
+=#
+y=(
+  1
+)
+#]
+</code></pre><h3 id="use-jlwalk-with-katex">Use JlWalk with Katex</h3>
+<p>Roughly speaking, all Katex expressions is a latex expressions between pairs of double dollar symbols. In the rest, we denote it as:</p>
+<ul>
+<li>DoubleDollars latex_expression DoubleDollars</li>
+</ul>
+<p>For the following code, where all &quot;DoubleDollars&quot; is to be replace with $$:</p>
+<pre><code>DoubleDollars \{ &#x1F3E3;|exp1|&#x1F3E3; \} \subset \{ &#x1F3E3;|exp2|&#x1F3E3; \} DoubleDollars
+</code></pre><p>We expect:</p>
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><mn>1</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>7</mn><mo>}</mo><mo>&#x2282;</mo><mo>{</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mn>4</mn><mo separator="true">,</mo><mn>5</mn><mo separator="true">,</mo><mn>6</mn><mo separator="true">,</mo><mn>7</mn><mo separator="true">,</mo><mn>8</mn><mo separator="true">,</mo><mn>9</mn><mo separator="true">,</mo><mn>1</mn><mn>0</mn><mo>}</mo></mrow><annotation encoding="application/x-tex">\{1, 3, 5, 7\}\subset \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">{</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">3</span><span class="mpunct">,</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">7</span><span class="mclose">}</span><span class="mrel">&#x2282;</span><span class="mopen">{</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">2</span><span class="mpunct">,</span><span class="mord mathrm">3</span><span class="mpunct">,</span><span class="mord mathrm">4</span><span class="mpunct">,</span><span class="mord mathrm">5</span><span class="mpunct">,</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathrm">7</span><span class="mpunct">,</span><span class="mord mathrm">8</span><span class="mpunct">,</span><span class="mord mathrm">9</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mclose">}</span></span></span></span></p>
+</blockquote>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>First of all, you need Gitbook cli installed.</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/gitbook-cli" target="_blank">Gitbook cli</a></li>
+</ul>
+<p><br></p>
+<blockquote>
+<p>KaTeX is a cross-browser JavaScript library that displays mathematical notation in web browsers. </p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>Katex handles only a limited subset of LaTeX&apos;s mathematics notation.</p>
+</blockquote>
+<p>For example, the following Katex expression <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span></span></span></span> will be printed as <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span></span></span></span>. </p>
+<ol>
+<li>$$ a \in A $$</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>&#x2208;</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">a</span><span class="mrel">&#x2208;</span><span class="mord mathit">A</span></span></span></span>. </li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"HelloWorld.pw.md","level":"1.2.1","depth":2,"path":"md/HelloWorld.pw.md","ref":"md/HelloWorld.pw.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook Tutorial","gitbook":"*","description":"This is a gitbook example"},"file":{"path":"Readme.md","mtime":"2020-08-24T06:37:45.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-24T06:38:50.302Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
