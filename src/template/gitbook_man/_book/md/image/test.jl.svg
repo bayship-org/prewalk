@@ -32,15 +32,15 @@ $(
 #
 S=[tpl(line) for line in L]
 vB="viewBox"
-_prewalk="TOKYO"
+_prewalk=["Prewalk","SVG"]
 #]
 
 <svg 🏣|vB|🏣="-1.5 -1.5 3 3" xmlns="http://www.w3.org/2000/svg">
 <g stroke-width="0.1" transform="translate(0 0)" stroke="blue">
 🏣| join(S,"\n") |🏣 
 </g>
-<g stroke-width="0.001" font-size="0.1" transform="translate(-2 -1)" stroke="blue">
-<text>🏣|"abc🏣"|🏣abc🏣</text> 
+<g stroke-width="0.001" font-size="0.1" transform="translate(-1 -1)" stroke="blue">
+<text>🏣|"🏣"|🏣 🏣</text> 
   </g>
 </svg>
 

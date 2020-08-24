@@ -1,4 +1,6 @@
-> If you are reading this Readme in Github, some part will not be in good condition. 
+# Readme
+
+>If you are reading this Readme in Github, some part will not be in good condition. 
 
 
  [Document](https://bayship-org.github.io/gitbook/prewalk/index.html "Document")
@@ -242,6 +244,21 @@ We expect:
 
 > $$\{1, 3, 5, 7\}\subset \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$$
 
+### Write SVG with Prewalk
+Source code:
+- [Github](https://github.com/bayship-org/prewalk "Github")
+  - src/template/gitbook_man/md/images/test.jl.svg
+
+Output:
+
+<br/>
+
+<img src="md/image/test.pw.svg" alt="test.pw.svg" width="40%"/>
+
+
+<img src="src/template/gitbook_man/md/image/test.pw.svg" alt="test.pw.svg" width="40%"/>
+
+
 
 ### Prerequisites
 
@@ -261,6 +278,7 @@ For example, the following Katex expression $$1$$ will be printed as $$2$$.
 
 1. \$\$ a \in A \$\$
 2. $$a\in A$$. 
+
 
 
 
