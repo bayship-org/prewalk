@@ -1,26 +1,38 @@
-In Github, some part of this md file will not be displayed in good condition. 
+> If you are reading this Readme in Github, some part will not be in good condition. 
+
+
+ [Document](https://bayship-org.github.io/gitbook/prewalk/index.html "Document")
 
 ### What is Prewalk?
 
 Prewalk is a string interpolation tool into any text files. For example, latex source files, markdown files, or source code files of any programming languages. 
+
 Though in the rest we focus on how to use Prewalk for markdown files in Gitbook projects. Some samples are also included for Katex and SVG in Gitbook.
 
 ### Notation
 All jl.md files are your source files to be compliled into pw.md files which will be displayed in your Gitbook project. For example:
+
 - test.jl.md
 - test.pw.md
+
+The same holds for jl.svg files.
+
 - test.jl.svg
 - test.pw.svg
 
-$InstallDir: the directory to install $Gitbook.
-$Gitbook: the root directory of the template.
-$Gitbook/md: put all your jl.md files here. 
-$Gitbook/md/image: put all your jl.svg files here.
-$Gitbook/jl: put all your jl files here.
-$Gitbook/julia: to customize Prewalk, edit jl files here.
+Here follows notations for important directories.
+
+- $InstallDir: the directory to install $Gitbook template.
+- $Gitbook: the root directory of the template.
+- $Gitbook/md: put all your source files here.
+  - jl.md and jl.svg. 
+- $Gitbook/jl: put all your julia source files here.
+  - If you need own libraries.
+- $Gitbook/julia: to customize Prewalk, edit jl files here.
+  
 
 
-### Install
+### How to install
 The template for gitbook is in Prewalk/src/template/gitbook
 To generalte Gitbook template, open a julia REPL:
 
@@ -28,18 +40,20 @@ To generalte Gitbook template, open a julia REPL:
 pkg> add Prewalk
 julia> using Prewalk
 julia> cd("$InstallDir")
-julia> Prewalk.template("gitbook")
+julia> Prewalk.template()
 ```
 
 Back to the OS terminal.
 ```
-$>cd $InstallDir/$Gitbook
->gitbook serve
+$> cd $InstallDir/$Gitbook
+$> gitbook serve
 ```
 Open your browser at localhost:4000 by default.
 
 ### Add an md file
+
 Suppose you want to add a new markdown file, "$Gitbook/md/test.md". As a downside of the template project, the file name must be "test.pw.md".
+
 Add an entry of "test.pw.md" into "$Gitbook/SUMMARY.md". Though do not create "$Gitbook/md/test.pw.md" in the file system as Prewalk will create it.
 
 ```
@@ -57,6 +71,7 @@ Instead you need to create "$Gitbook/md/test.jl.md". Put the following code in "
 ```
 
 The special character,'🏣', is called prewalkChar. You can type prewalkChar by:
+
 - Open julia REPL.
 - type "\:post_office:".
 - type TAB.
@@ -79,11 +94,13 @@ $> cd $Gitbook
 $> julia julia/main.jl true
 $> gitbook serve #If it does not auto reload.
 ```
+
 Note that all jl.md files are compiled in the order of entries in SUMMARY.md. It implies that just one change in some jl.md file will trigger compiling all jl.md files.
 
 
 ### More complex example
 For $Gitbook/md/.../test.jl.md, Prewalk evaluates julia code in the following order. Note that these files are not necessary. And all jl file is evaluated exactly once.
+
 1. $Gitbook/jl/user.jl
 2. $Gitbook/md/.../_.jl
 3. $Gitbook/md/.../test.jl
@@ -161,11 +178,13 @@ We expect:
 ```
 
 Sometimes you may need to type a prewalkChar followed by a bar not for denoting the degree. For such a case, you may use emptyChar, 🔰. For example, 🏣🔰|. To type emptyChar:
+
 - Open julia REPL.
 - Type "\:beginner:".
 - Type TAB.
 
 ### Some typical errors
+
 ```
 [#
 x=1
@@ -205,10 +224,12 @@ y=(
 ### Use JlWalk with Katex
 
 Roughly speaking, all Katex expressions is a latex expressions between pairs of double dollar symbols. In the rest, we denote it as:
+
 - DoubleDollars latex_expression DoubleDollars
 
 
 For the following code, where all "DoubleDollars" is to be replace with &#36;&#36;:
+
 ```
 DoubleDollars \{ 🏣|exp1|🏣 \} \subset \{ 🏣|exp2|🏣 \} DoubleDollars
 ```
@@ -233,6 +254,7 @@ First of all, you need Gitbook cli installed.
 >Katex handles only a limited subset of LaTeX's mathematics notation.
 
 For example, the following Katex expression $$1$$ will be printed as $$2$$. 
+
 1. \$\$ a \in A \$\$
 2. $$a\in A$$. 
 

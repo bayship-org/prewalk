@@ -180,40 +180,51 @@
                                 <section class="normal markdown-section">
                                 
                                 <blockquote>
-<p>In Github, some part of this md file will not be displayed in good condition. </p>
+<p>If you are reading this Readme in Github, some part will not be in good condition. </p>
 </blockquote>
-<p> <a href="https://bayship-org.github.io/gitbook/" title="Document" target="_blank">Document</a></p>
+<p> <a href="https://bayship-org.github.io/gitbook/prewalk/index.html" title="Document" target="_blank">Document</a></p>
 <h3 id="what-is-prewalk">What is Prewalk?</h3>
-<p>Prewalk is a string interpolation tool into any text files. For example, latex source files, markdown files, or source code files of any programming languages. 
-Though in the rest we focus on how to use Prewalk for markdown files in Gitbook projects. Some samples are also included for Katex and SVG in Gitbook.</p>
+<p>Prewalk is a string interpolation tool into any text files. For example, latex source files, markdown files, or source code files of any programming languages. </p>
+<p>Though in the rest we focus on how to use Prewalk for markdown files in Gitbook projects. Some samples are also included for Katex and SVG in Gitbook.</p>
 <h3 id="notation">Notation</h3>
 <p>All jl.md files are your source files to be compliled into pw.md files which will be displayed in your Gitbook project. For example:</p>
 <ul>
 <li>test.jl.md</li>
 <li>test.pw.md</li>
+</ul>
+<p>The same holds for jl.svg files.</p>
+<ul>
 <li>test.jl.svg</li>
 <li>test.pw.svg</li>
 </ul>
-<p>$InstallDir: the directory to install $Gitbook.
-$Gitbook: the root directory of the template.
-$Gitbook/md: put all your jl.md files here. 
-$Gitbook/md/image: put all your jl.svg files here.
-$Gitbook/jl: put all your jl files here.
-$Gitbook/julia: to customize Prewalk, edit jl files here.</p>
-<h3 id="install">Install</h3>
+<p>Here follows notations for important directories.</p>
+<ul>
+<li>$InstallDir: the directory to install $Gitbook template.</li>
+<li>$Gitbook: the root directory of the template.</li>
+<li>$Gitbook/md: put all your source files here.<ul>
+<li>jl.md and jl.svg. </li>
+</ul>
+</li>
+<li>$Gitbook/jl: put all your julia source files here.<ul>
+<li>If you need own libraries.</li>
+</ul>
+</li>
+<li>$Gitbook/julia: to customize Prewalk, edit jl files here.</li>
+</ul>
+<h3 id="how-to-install">How to install</h3>
 <p>The template for gitbook is in Prewalk/src/template/gitbook
 To generalte Gitbook template, open a julia REPL:</p>
 <pre><code>pkg&gt; add Prewalk
 julia&gt; using Prewalk
 julia&gt; cd(&quot;$InstallDir&quot;)
-julia&gt; Prewalk.template(&quot;gitbook&quot;)
+julia&gt; Prewalk.template()
 </code></pre><p>Back to the OS terminal.</p>
-<pre><code>$&gt;cd $InstallDir/$Gitbook
-&gt;gitbook serve
+<pre><code>$&gt; cd $InstallDir/$Gitbook
+$&gt; gitbook serve
 </code></pre><p>Open your browser at localhost:4000 by default.</p>
 <h3 id="add-an-md-file">Add an md file</h3>
-<p>Suppose you want to add a new markdown file, &quot;$Gitbook/md/test.md&quot;. As a downside of the template project, the file name must be &quot;test.pw.md&quot;.
-Add an entry of &quot;test.pw.md&quot; into &quot;$Gitbook/SUMMARY.md&quot;. Though do not create &quot;$Gitbook/md/test.pw.md&quot; in the file system as Prewalk will create it.</p>
+<p>Suppose you want to add a new markdown file, &quot;$Gitbook/md/test.md&quot;. As a downside of the template project, the file name must be &quot;test.pw.md&quot;.</p>
+<p>Add an entry of &quot;test.pw.md&quot; into &quot;$Gitbook/SUMMARY.md&quot;. Though do not create &quot;$Gitbook/md/test.pw.md&quot; in the file system as Prewalk will create it.</p>
 <pre><code># Summary
 (README.md)
 [TEST](md/test.pw.md)
@@ -386,7 +397,7 @@ y=(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"HelloWorld.pw.md","level":"1.2.1","depth":2,"path":"md/HelloWorld.pw.md","ref":"md/HelloWorld.pw.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook Tutorial","gitbook":"*","description":"This is a gitbook example"},"file":{"path":"Readme.md","mtime":"2020-08-24T06:37:45.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-24T06:38:50.302Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"HelloWorld.pw.md","level":"1.2.1","depth":2,"path":"md/HelloWorld.pw.md","ref":"md/HelloWorld.pw.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GitBook Tutorial","gitbook":"*","description":"This is a gitbook example"},"file":{"path":"Readme.md","mtime":"2020-08-24T08:45:34.493Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-24T08:47:13.531Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
