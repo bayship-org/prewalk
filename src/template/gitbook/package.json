@@ -3,6 +3,6 @@
     "scripts": {
       "pwbuild":"julia julia/main.jl",
       "gitserve": "gitbook serve",
-      "gitbuild": "gitbook build & julia jl/gitbuild.jl"
+      "gitbuild": "gitbook build"
     }
 }
