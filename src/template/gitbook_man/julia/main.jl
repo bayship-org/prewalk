@@ -54,8 +54,8 @@ end
 function getAllSVG()
   local srcArr=[]
   local destArr=[]  
-  local mdImg="md"
-  for (root, dirs, files) in walkdir("$(Conf.rootDir)/$(mdImg)")
+  local md="md"
+  for (root, dirs, files) in walkdir("$(Conf.rootDir)/$(md)")
     #to match to all file name if with the extension as .jl.svg
     local r=r"\.jl\.svg$"
     
@@ -80,7 +80,7 @@ function changeExt(file::String,rgxSubst::Pair{Regex,SubstitutionString{String}}
   
 end
 
-function run()
+function build()
   local ok=false
 
   local destArr=getAllPwMdFromSummaryMd()
@@ -106,12 +106,14 @@ end
 
 @show Conf.prewalkChar
 begin
-local ok=run()
-  if !ok 
-    for lg in Lggng.LOG 
-      println(lg)
+    local ok=build()
+    if !ok 
+      for lg in Lggng.LOG 
+        println(lg)
+      end
     end
-  end
 end
+
+
 
 

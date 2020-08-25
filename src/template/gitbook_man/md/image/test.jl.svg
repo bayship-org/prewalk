@@ -32,7 +32,7 @@ $(
 #
 S=[tpl(line) for line in L]
 vB="viewBox"
-_prewalk=["Prewalk","SVG"]
+_prewalk=["Prewalk","SVG","Julia","npm"]
 #]
 
 <svg 🏣|vB|🏣="-1.5 -1.5 3 3" xmlns="http://www.w3.org/2000/svg">

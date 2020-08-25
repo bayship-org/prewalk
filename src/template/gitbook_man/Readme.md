@@ -14,6 +14,17 @@ Prewalk is a string interpolation tool into any text files. For example, latex s
 
 Though in the rest we focus on how to use Prewalk for markdown files in Gitbook projects. Some samples are also included for Katex and SVG in Gitbook.
 
+### Prerequisites
+
+You need node.js and Gitbook cli installed.
+- [Nodejs](https://nodejs.org/en/ "Node.js")
+- [GitbookCli](https://www.npmjs.com/package/gitbook-cli "Gitbook cli")
+
+Node.js is required for Gitbook, not for Prewalk.
+
+Prewalk's gitbook template includes Katex, a kind of Latex for web.
+
+
 ### Notation
 All jl.md files are your source files to be compliled into pw.md files which will be displayed in your Gitbook project. For example:
 
@@ -51,7 +62,7 @@ julia> Prewalk.template()
 Back to the OS terminal.
 ```
 $> cd $InstallDir/$Gitbook
-$> gitbook serve
+$> npm run gitserve
 ```
 Open your browser at localhost:4000 by default.
 
@@ -92,12 +103,16 @@ Hello world
 
 ### Complile jl.md files
 
-To compile all jl.md files:
+To compile all jl.md files, we run a script in package.json's:
 
 ```
 $> cd $Gitbook
-$> julia julia/main.jl
-$> gitbook serve #If it does not auto reload.
+$> npm run pwbuild #Prewalk's build
+
+# Followed by optional commands as follows.
+
+$> npm run gitserve #gitbook serve
+$> npm run gitbuild #gitbook build
 ```
 
 Note that all jl.md files are compiled in the order of entries in SUMMARY.md. It implies that just one change in some jl.md file will trigger compiling all jl.md files.
@@ -260,24 +275,8 @@ Output:
 
 
 
-### Prerequisites
 
-First of all, you need Gitbook cli installed.
-- [Gitbook cli][1]
-[1]: https://www.npmjs.com/package/gitbook-cli
 
-<br/>
-
-> KaTeX is a cross-browser JavaScript library that displays mathematical notation in web browsers. 
-
-<br/>
-
->Katex handles only a limited subset of LaTeX's mathematics notation.
-
-For example, the following Katex expression $$1$$ will be printed as $$2$$. 
-
-1. \$\$ a \in A \$\$
-2. $$a\in A$$. 
 
 
 
