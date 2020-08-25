@@ -1,7 +1,0 @@
-{
-  "title": "GitBook Tutorial",
-  "description": "This is a gitbook example",
-  "plugins": ["navigator"],
-  "plugins": ["expand-active-chapter"],
-  "plugins": ["katex"]
-}
